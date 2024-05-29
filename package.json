@@ -1,0 +1,28 @@
+{
+  "name": "sughafoods",
+  "version": "1.0.0",
+  "description": "Food ordering App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/himanshu-sugha/SughaFoods.git"
+  },
+  "author": "Himanshu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/himanshu-sugha/SughaFoods/issues"
+  },
+  "homepage": "https://github.com/himanshu-sugha/SughaFoods#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
