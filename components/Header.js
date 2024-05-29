@@ -1,9 +1,9 @@
 const Header = () => {
     return (
         <div className="title">
-        
-                <img id="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8sQ3a-QGtFx5_fy3y3Y12irk7oLaynBazK3Nwexviqw&s" alt="Logo" />
-           
+        <div className="sugha">
+                <img id="logo" src="https://e7.pngegg.com/pngimages/47/533/png-clipart-swiggy-office-business-online-food-ordering-delivery-bangalore-business-food-text-thumbnail.png" alt="Logo" />
+               <div>Sugha Foods</div></div>
         
                 <ul className="list">
                     <li  className="listItem">Home</li>
