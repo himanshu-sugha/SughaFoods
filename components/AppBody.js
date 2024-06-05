@@ -3,18 +3,18 @@ import { resapi } from './constants';
 
 const Card = ({ name, rating, cuisines, costForTwo, cloudinaryImageId }) => {
     return (
-        <div className="m-4 p-4 w-[250px] rounded">
+        <div className="m-4 p-4 w-64 rounded-lg shadow-lg bg-white hover:shadow-xl hover:scale-105 transition duration-300 transform-gpu">
             <img
-                className="cardlogo  h-3/5 justify-center"
+                className="w-full h-40 object-cover rounded-t-lg"
                 src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`}
                 alt={name}
             />
-            <ul className='menu h-2/5 text-white bg-slate-700'>
-                <li><h3>{name}</h3></li>
-                <li className='menuItem '>{rating}</li>
-                <li className='menuItem po'><p>{cuisines.join(', ')}</p></li>
-                <li className='menuItem'>{costForTwo}</li>
-            </ul>
+            <div className='p-4 text-gray-800'>
+                <h3 className="text-lg font-semibold mb-2">{name}</h3>
+                <p className="text-sm text-gray-600">{rating}</p>
+                <p className="text-sm text-gray-600">{cuisines.join(', ')}</p>
+                <p className="text-sm text-gray-600">{costForTwo}</p>
+            </div>
         </div>
     );
 };
@@ -47,11 +47,10 @@ const AppBody = () => {
     const filterTopRatedRestaurants = () => {
         if (showTopRated) {
             setFilteredRestaurants(restaurants);
-        } else {//default jb false thi
+        } else {
             const topRated = restaurants.filter(res => res.info.avgRating > 4.1);
             setFilteredRestaurants(topRated);
         }
-        //hr baar change ho ra irrespective of change
         setShowTopRated(!showTopRated);
     };
 
@@ -63,27 +62,27 @@ const AppBody = () => {
     };
 
     if (loading) {
-        return <div><h1>Loading...</h1></div>;
+        return <div className="flex justify-center items-center h-screen"><h1 className="text-2xl font-semibold">Loading...</h1></div>;
     }
 
     return (
-        <div className='AppBody  bg-orange-100'>
-            <div className='BodyTitle flex justify-evenly text-xl p-5 '>
-                <button className="    rounded-md px-4  bg-blue-500 border-none text-white" onClick={filterTopRatedRestaurants}>
+        <div className="AppBody bg-orange-100 min-h-screen p-5">
+            <div className="BodyTitle flex flex-col sm:flex-row justify-between items-center text-xl p-5 mb-6 bg-orange-200 rounded-lg shadow-md">
+                <button className="rounded-md px-4 py-2 bg-blue-500 text-white font-semibold hover:bg-blue-600 transition duration-300" onClick={filterTopRatedRestaurants}>
                     {showTopRated ? "Show All Restaurants" : "Top Rated Restaurants"}
                 </button>
-                <div className='search '>
-                    <input className=' border-4 px-6 border-solid  rounded-md  border-black  text-black bg-orange-100'
+                <div className="search flex items-center mt-4 sm:mt-0">
+                    <input className="border-2 px-4 py-2 rounded-md border-gray-300 text-black bg-white focus:outline-none focus:border-blue-500 transition duration-300"
                         placeholder="Search for restaurants..."
-                        type='text'
+                        type="text"
                         value={searchText}
                         onChange={(e) => setSearchText(e.target.value)}
                     />
-                    <button className='  mx-3 px-3 border-none rounded-md text-white bg-blue-500' onClick={handleSearch}>Search</button>
+                    <button className="ml-3 px-4 py-2 border-none rounded-md text-white bg-blue-500 font-semibold hover:bg-blue-600 transition duration-300" onClick={handleSearch}>Search</button>
                 </div>
             </div>
 
-            <div className="Allcard flex flex-wrap ">
+            <div className="Allcard flex flex-wrap justify-center">
                 {filteredRestaurants.map((restaurant, index) => (
                     <Card
                         key={index}

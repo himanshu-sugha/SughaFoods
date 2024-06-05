@@ -1,12 +1,11 @@
 // App.js
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import Header from './components/Header';
 import About from './components/About';
 import Contact from './components/Contact';
-import Home from './components/Home';
 import Error from './components/Error';
-import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import AppBody from './components/AppBody';
 
 const AppComp = () => {
@@ -25,17 +24,17 @@ const Approuter = createBrowserRouter([
         errorElement: <Error />,
         children: [
             {
-                index: "/",
+                index: true,
                 element: <AppBody />
             },
             {
-                path: "./components/about",
+                path: "about",
                 element: <About />
             },
             {
-                path: "./components/contact",
+                path: "contact",
                 element: <Contact />
-            }, 
+            },
         ]
     }
 ]);
